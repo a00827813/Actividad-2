@@ -1,6 +1,11 @@
+#José Romero A00827813
+#Diego Andrés Moreno A01283790
+#Juego Víbora
+
 from turtle import *
 from random import randrange
 from freegames import square, vector
+import random
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
@@ -39,10 +44,14 @@ def move():
 
     clear()
 
-    for body in snake:
-        square(body.x, body.y, 9, 'black')
+    number_of_colors = 2
 
-    square(food.x, food.y, 9, 'green')
+    color = ["#"+''.join([random.choice('0123456789ABCDEF') for j in range(6)]) for i in range(number_of_colors)]
+
+    for body in snake:
+        square(body.x, body.y, 9, color[0])
+
+    square(food.x, food.y, 9, color[1])
     update()
     ontimer(move, 100)
 
