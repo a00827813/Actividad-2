@@ -1,7 +1,3 @@
-#José Romero A00827813
-#Diego Andrés Moreno A01283790
-#Juego de la Víbora
-
 from turtle import *
 from random import randrange
 from freegames import square, vector
@@ -23,6 +19,9 @@ def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
+
+    food.x = randrange(-15, 15) * 10
+    food.y = randrange(-15, 15) * 10
 
     if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
